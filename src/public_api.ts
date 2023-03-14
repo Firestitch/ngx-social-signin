@@ -1,7 +1,13 @@
-export { FsClipboardModule } from './app/fs-clipboard.module';
+export { FsSocialSigninModule } from './app/fs-social-signin.module';
 
-export { FsClipboardButtonComponent } from './app/components/clipboard-button/clipboard-button.component';
-export { FsClipboardComponent } from './app/components/clipboard/clipboard.component';
-export { FsClipboardButtonDirective } from './app/directives/clipboard/clipboard.directive';
+export { FsSocialSigninButtonComponent, FsSocialSigninButtonsComponent } from './app/components';
 
-export { FsClipboard } from './app/services/clipboard-service';
+export { FsSocialSignin } from './app/services/social-sigin.service';
+
+export { FS_SOCIAL_SIGNIN_CONFIG } from './app/injectors';
+
+export {
+  FacebookSigninProvider, GoogleSigninProvider, AmazonSigninProvider, AppleSigninProvider,
+} from './app/providers';
+
+export { Provider } from './app/enums';

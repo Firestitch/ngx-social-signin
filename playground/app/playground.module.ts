@@ -2,24 +2,22 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
 import { FsExampleModule } from '@firestitch/example';
 import { FsMessageModule } from '@firestitch/message';
 import { FsLabelModule } from '@firestitch/label';
 import { FsStoreModule } from '@firestitch/store';
+import { AppleSigninProvider, FacebookSigninProvider, FsSocialSigninModule, FS_SOCIAL_SIGNIN_CONFIG, GoogleSigninProvider } from '@firestitch/social-signin';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 
 import { AppMaterialModule } from './material.module';
 import {
-  ExamplesComponent
+  ExamplesComponent,
 } from './components';
 import { AppComponent } from './app.component';
-import { CopyComponent } from './components/copy';
-import { FsClipboardModule } from 'src/app/fs-clipboard.module';
-import { ClipboardButtonComponent } from './components/clipboard-button';
-import { ClipboardComponent } from './components/clipboard';
+import { SiginButtonComponent } from './components/signin-button';
 
 
 const routes: Routes = [
@@ -27,7 +25,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  bootstrap: [ AppComponent ],
+  bootstrap: [AppComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -36,7 +34,7 @@ const routes: Routes = [
     FsLabelModule,
     FsStoreModule,
     FsExampleModule.forRoot(),
-    FsClipboardModule,
+    FsSocialSigninModule,
     FsMessageModule.forRoot(),
     ToastrModule.forRoot({ preventDuplicates: true }),
     RouterModule.forRoot(routes),
@@ -44,9 +42,21 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     ExamplesComponent,
-    CopyComponent,
-    ClipboardButtonComponent,
-    ClipboardComponent,
+    SiginButtonComponent,
+  ],
+  providers: [
+    {
+      provide: FS_SOCIAL_SIGNIN_CONFIG,
+      useFactory: () => {
+        return {
+          providers: [
+            new GoogleSigninProvider('46829300559-tjhftg5s3ih3mnuq53pm9540nn5s43r9.apps.googleusercontent.com'), //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
+            new FacebookSigninProvider('197085513672785'),
+            new AppleSigninProvider('197085513672785'),
+          ],
+        };
+      },
+    },
   ],
 })
 export class PlaygroundModule {

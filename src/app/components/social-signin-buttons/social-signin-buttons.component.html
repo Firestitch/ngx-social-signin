@@ -1,0 +1,8 @@
+<ng-container 
+    *ngFor="let signinProvider of signinProviders">
+  <fs-social-signin-button 
+    [provider]="signinProvider.PROVIDER"
+    [redirectUri]="redirectUri"
+    [width]="width">
+  </fs-social-signin-button>
+</ng-container>

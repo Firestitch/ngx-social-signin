@@ -1,0 +1,13 @@
+img {
+  height: 20px;
+  margin-right: 8px;
+}
+
+:host ::ng-deep {
+  .mat-button-wrapper {
+    display: flex;
+    align-items: just;
+    justify-content: center;
+    align-items: center;
+  }
+}

@@ -1,0 +1,11 @@
+<ng-container *ngIf="provider">
+  <a  
+      [style.width]="width"
+      type="button"
+      color="primary"
+      mat-raised-button
+      [href]="link">
+    <img [src]="'/assets/social-signin/'  + provider + '-white-logo.svg'">
+    {{buttonLabel}}
+  </a> 
+</ng-container>
