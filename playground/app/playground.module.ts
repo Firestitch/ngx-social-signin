@@ -50,7 +50,7 @@ const routes: Routes = [
       useFactory: () => {
         return {
           providers: [
-            new GoogleSigninProvider('46829300559-tjhftg5s3ih3mnuq53pm9540nn5s43r9.apps.googleusercontent.com'), //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
+            new GoogleSigninProvider('46829300559-tjhftg5s3ih3mnuq53pm9540nn5s43r9.apps.googleusercontent.com'),
             new FacebookSigninProvider('197085513672785'),
             new AppleSigninProvider('197085513672785'),
           ],
