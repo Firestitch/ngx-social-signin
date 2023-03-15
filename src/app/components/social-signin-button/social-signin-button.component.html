@@ -5,7 +5,10 @@
       color="primary"
       mat-raised-button
       [href]="link">
-    <img [src]="'/assets/social-signin/'  + provider + '-white-logo.svg'">
+    <fs-social-signin-logo 
+      [theme]="'white'" 
+      [provider]="provider">
+    </fs-social-signin-logo>
     {{buttonLabel}}
   </a> 
 </ng-container>

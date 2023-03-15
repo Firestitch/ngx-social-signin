@@ -43,22 +43,23 @@ export class AmazonSigninProvider extends SigninProvider {
   }
 
   public initialize(): Observable<void> {
-    let amazonRoot = null;
-    if (document) {
-      amazonRoot = document.createElement('div');
-      amazonRoot.id = 'amazon-root';
-      document.body.appendChild(amazonRoot);
-    }
+    return of();
+    // let amazonRoot = null;
+    // if (document) {
+    //   amazonRoot = document.createElement('div');
+    //   amazonRoot.id = 'amazon-root';
+    //   document.body.appendChild(amazonRoot);
+    // }
 
-    window.onAmazonLoginReady = () => {
-      amazon.Login.setClientId(this._clientId);
-    };
+    // window.onAmazonLoginReady = () => {
+    //   amazon.Login.setClientId(this._clientId);
+    // };
 
-    return this.loadScript(
-      'amazon-login-sdk',
-      'https://assets.loginwithamazon.com/sdk/na/login1.js',
-      amazonRoot,
-    );
+    // return this.loadScript(
+    //   'amazon-login-sdk',
+    //   'https://assets.loginwithamazon.com/sdk/na/login1.js',
+    //   amazonRoot,
+    // );
   }
 
   public getLoginStatus(): Observable<SocialUser> {

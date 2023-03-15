@@ -1,6 +1,8 @@
 export { FsSocialSigninModule } from './app/fs-social-signin.module';
 
-export { FsSocialSigninButtonComponent, FsSocialSigninButtonsComponent } from './app/components';
+export {
+  FsSocialSigninButtonComponent, FsSocialSigninButtonsComponent, FsSocialSigninLogoComponent,
+} from './app/components';
 
 export { FsSocialSignin } from './app/services/social-sigin.service';
 
@@ -11,3 +13,5 @@ export {
 } from './app/providers';
 
 export { Provider } from './app/enums';
+
+export { Providers } from './app/consts';

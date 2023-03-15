@@ -1,7 +1,7 @@
 {
   "name": "@firestitch/social-signin",
   "title": "Social Signin",
-  "version": "12.0.10",
+  "version": "12.0.12",
   "repository": {
     "type": "git",
     "url": "https://github.com/Firestitch/ngx-social-signin"
@@ -47,7 +47,7 @@
     "@firestitch/autocomplete-chips": "^12.0.0",
     "@firestitch/clear": "^12.0.0",
     "@firestitch/common": "^12.0.0",
-    "@firestitch/component-tools": "^12.0.9",
+    "@firestitch/component-tools": "^12.0.10",
     "@firestitch/lint": "^12.0.15",
     "@firestitch/date": "^12.0.0",
     "@firestitch/datepicker": "^12.0.1",

@@ -59,13 +59,13 @@ export class GoogleSigninProvider extends SigninProvider {
   ) {
     super();
 
-    this._initOptions = { ...defaultInitOptions, ...this._initOptions };
+    // this._initOptions = { ...defaultInitOptions, ...this._initOptions };
 
-    // emit changeUser events but skip initial value from behaviorSubject
-    this._socialUser.pipe(skip(1)).subscribe(this.changeUser);
+    // // emit changeUser events but skip initial value from behaviorSubject
+    // this._socialUser.pipe(skip(1)).subscribe(this.changeUser);
 
-    // emit receivedAccessToken but skip initial value from behaviorSubject
-    this._accessToken.pipe(skip(1)).subscribe(this._receivedAccessToken);
+    // // emit receivedAccessToken but skip initial value from behaviorSubject
+    // this._accessToken.pipe(skip(1)).subscribe(this._receivedAccessToken);
   }
 
   public get PROVIDER(): Provider {
@@ -73,57 +73,58 @@ export class GoogleSigninProvider extends SigninProvider {
   }
 
   public initialize(autoLogin?: boolean): Observable<void> {
-    return this.loadScript(
-      Provider.Google,
-      'https://accounts.google.com/gsi/client',
-    )
-      .pipe(
-        tap(() => {
-          google.accounts.id.initialize({
-            client_id: this._clientId,
-            auto_select: autoLogin,
-            callback: ({ credential }) => {
-              const socialUser = this._createSocialUser(credential);
-              this._socialUser.next(socialUser);
+    return of();
+    // return this.loadScript(
+    //   Provider.Google,
+    //   'https://accounts.google.com/gsi/client',
+    // )
+    //   .pipe(
+    //     tap(() => {
+    //       google.accounts.id.initialize({
+    //         client_id: this._clientId,
+    //         auto_select: autoLogin,
+    //         callback: ({ credential }) => {
+    //           const socialUser = this._createSocialUser(credential);
+    //           this._socialUser.next(socialUser);
 
-            },
-            prompt_parent_id: this._initOptions?.prompt_parent_id,
-            itp_support: this._initOptions.oneTapEnabled,
-          });
+    //         },
+    //         prompt_parent_id: this._initOptions?.prompt_parent_id,
+    //         itp_support: this._initOptions.oneTapEnabled,
+    //       });
 
-          if (this._initOptions.oneTapEnabled) {
-            this._socialUser
-              .pipe(filter((user) => user === null))
-              .subscribe(() => {
-                google.accounts.id.prompt();
-              });
-          }
+    //       if (this._initOptions.oneTapEnabled) {
+    //         this._socialUser
+    //           .pipe(filter((user) => user === null))
+    //           .subscribe(() => {
+    //             google.accounts.id.prompt();
+    //           });
+    //       }
 
-          if (this._initOptions.scopes) {
-            const scope =
-                  this._initOptions.scopes instanceof Array
-                    ? this._initOptions.scopes.filter((s) => s).join(' ')
-                    : this._initOptions.scopes;
+    //       if (this._initOptions.scopes) {
+    //         const scope =
+    //               this._initOptions.scopes instanceof Array
+    //                 ? this._initOptions.scopes.filter((s) => s).join(' ')
+    //                 : this._initOptions.scopes;
 
-            this._tokenClient = google.accounts.oauth2.initTokenClient({
-              client_id: this._clientId,
-              scope,
-              prompt : this._initOptions.prompt,
-              callback: (tokenResponse) => {
-                if (tokenResponse.error) {
-                  this._accessToken.error({
-                    code: tokenResponse.error,
-                    description: tokenResponse.error_description,
-                    uri: tokenResponse.error_uri,
-                  });
-                } else {
-                  this._accessToken.next(tokenResponse.access_token);
-                }
-              },
-            });
-          }
-        }),
-      );
+    //         this._tokenClient = google.accounts.oauth2.initTokenClient({
+    //           client_id: this._clientId,
+    //           scope,
+    //           prompt : this._initOptions.prompt,
+    //           callback: (tokenResponse) => {
+    //             if (tokenResponse.error) {
+    //               this._accessToken.error({
+    //                 code: tokenResponse.error,
+    //                 description: tokenResponse.error_description,
+    //                 uri: tokenResponse.error_uri,
+    //               });
+    //             } else {
+    //               this._accessToken.next(tokenResponse.access_token);
+    //             }
+    //           },
+    //         });
+    //       }
+    //     }),
+    //   );
   }
 
   public get OAUTH_URL(): string {

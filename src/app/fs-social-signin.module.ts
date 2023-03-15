@@ -6,7 +6,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
 
 import { FsSocialSigninButtonComponent } from './components/social-signin-button/social-signin-button.component';
-import { FsSocialSigninButtonsComponent } from './components';
+import { FsSocialSigninButtonsComponent, FsSocialSigninLogoComponent } from './components';
 
 
 @NgModule({
@@ -20,10 +20,12 @@ import { FsSocialSigninButtonsComponent } from './components';
   declarations: [
     FsSocialSigninButtonComponent,
     FsSocialSigninButtonsComponent,
+    FsSocialSigninLogoComponent,
   ],
   exports: [
     FsSocialSigninButtonComponent,
     FsSocialSigninButtonsComponent,
+    FsSocialSigninLogoComponent,
   ],
 })
 export class FsSocialSigninModule {

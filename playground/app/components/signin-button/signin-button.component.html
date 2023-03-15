@@ -1,3 +1,13 @@
 <fs-social-signin-buttons
   [width]="'300px'">
 </fs-social-signin-buttons>
+
+<br><br><br>
+
+<ng-container *ngFor="let provider of Providers">
+  <fs-social-signin-logo
+    [width]="'30px'"
+    [theme]="'color'"
+    [provider]="provider.value">
+  </fs-social-signin-logo>
+</ng-container>

@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 import { FsMessage } from '@firestitch/message';
-import { FsSocialSignin, Provider } from '@firestitch/social-signin';
+import { FsSocialSignin, Provider, Providers } from '@firestitch/social-signin';
 
 
 @Component({
@@ -13,6 +13,7 @@ import { FsSocialSignin, Provider } from '@firestitch/social-signin';
 export class SiginButtonComponent {
 
   public Provider = Provider;
+  public Providers = Providers;
 
   constructor(
     private _socialSignin: FsSocialSignin,

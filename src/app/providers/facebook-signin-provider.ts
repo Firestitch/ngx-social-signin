@@ -43,21 +43,22 @@ export class FacebookSigninProvider extends SigninProvider {
   }
 
   public initialize(): Observable<void> {
-    return this.loadScript(
-      FacebookSigninProvider.PROVIDER,
-      `//connect.facebook.net/${this._requestOptions.locale}/sdk.js`,
-    )
-      .pipe(
-        tap(() => {
-          FB.init({
-            appId: this._facebookAppId,
-            autoLogAppEvents: true,
-            cookie: true,
-            xfbml: true,
-            version: this._requestOptions.version,
-          });
-        }),
-      );
+    return of();
+    // return this.loadScript(
+    //   FacebookSigninProvider.PROVIDER,
+    //   `//connect.facebook.net/${this._requestOptions.locale}/sdk.js`,
+    // )
+    //   .pipe(
+    //     tap(() => {
+    //       FB.init({
+    //         appId: this._facebookAppId,
+    //         autoLogAppEvents: true,
+    //         cookie: true,
+    //         xfbml: true,
+    //         version: this._requestOptions.version,
+    //       });
+    //     }),
+    //   );
   }
 
   public getScopes(): string[] {
