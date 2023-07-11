@@ -13,5 +13,6 @@ export {
 } from './app/providers';
 
 export { Provider } from './app/enums';
+export * from './app/interfaces';
 
 export { Providers } from './app/consts';

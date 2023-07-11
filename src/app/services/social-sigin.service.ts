@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { Provider } from '../enums';
 import { FS_SOCIAL_SIGNIN_CONFIG } from '../injectors';
 import { SigninProvider } from '../providers/signin-provider';
+import { SocialSigninConfig } from '../interfaces';
 
 
 @Injectable({ providedIn: 'root' })
@@ -13,7 +14,7 @@ export class FsSocialSignin {
   private _signinProviders: Map<Provider, SigninProvider> = new Map();
 
   constructor(
-    @Inject(FS_SOCIAL_SIGNIN_CONFIG) private _config,
+    @Inject(FS_SOCIAL_SIGNIN_CONFIG) private _config: SocialSigninConfig,
   ) {
     this._initialize(this._config);
   }
@@ -94,7 +95,7 @@ export class FsSocialSignin {
   //   this._authState.next(user);
   //}
 
-  private _initialize(config) {
+  private _initialize(config: SocialSigninConfig) {
     config.providers
       .forEach((signinProvider: SigninProvider) => {
         this._signinProviders.set(

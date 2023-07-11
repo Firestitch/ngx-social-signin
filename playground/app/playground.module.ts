@@ -7,7 +7,10 @@ import { FsExampleModule } from '@firestitch/example';
 import { FsMessageModule } from '@firestitch/message';
 import { FsLabelModule } from '@firestitch/label';
 import { FsStoreModule } from '@firestitch/store';
-import { AppleSigninProvider, FacebookSigninProvider, FsSocialSigninModule, FS_SOCIAL_SIGNIN_CONFIG, GoogleSigninProvider } from '@firestitch/social-signin';
+import {
+  AppleSigninProvider, FacebookSigninProvider, FsSocialSigninModule,
+  FS_SOCIAL_SIGNIN_CONFIG, GoogleSigninProvider,
+} from '@firestitch/social-signin';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
