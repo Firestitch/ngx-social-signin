@@ -1,7 +1,7 @@
 {
   "name": "@firestitch/social-signin",
   "title": "Social Signin",
-  "version": "12.0.13",
+  "version": "13.0.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/Firestitch/ngx-social-signin"
@@ -24,7 +24,8 @@
     "package:test": "cd node_modules/@firestitch/component-tools && npm run cli:package:test",
     "package:publish": "cd node_modules/@firestitch/component-tools && npm run cli:package:publish",
     "demo:build": "cd node_modules/@firestitch/component-tools && npm run cli:demo",
-    "serve": "cd node_modules/@firestitch/component-tools && npm run cli:serve:secure"
+    "serve": "cd node_modules/@firestitch/component-tools && npm run cli:serve:secure",
+    "npm-update": "npx npm-check-updates -u \"/@firestitch/\" --target semver"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~12.2.14",
@@ -35,7 +36,6 @@
     "@angular/compiler": "^12.2.15",
     "@angular/compiler-cli": "^12.2.15",
     "@angular/core": "^12.2.15",
-    "@angular/flex-layout": "^12.0.0-beta.35",
     "@angular/forms": "^12.2.15",
     "@angular/material": "^12.2.13",
     "@angular/platform-browser": "^12.2.15",
@@ -48,15 +48,17 @@
     "@firestitch/clear": "^12.0.0",
     "@firestitch/common": "^12.0.0",
     "@firestitch/component-tools": "^12.0.11",
-    "@firestitch/date": "^12.0.0",
+    "@firestitch/core": "^12.1.0",
+    "@firestitch/date": "^12.4.5",
     "@firestitch/datepicker": "^12.0.1",
     "@firestitch/dialog": "^12.0.1",
     "@firestitch/drawer": "^12.0.0",
     "@firestitch/example": "^12.0.0",
     "@firestitch/exif-js": "^2.3.0",
+    "@firestitch/file": "^12.18.6",
     "@firestitch/form": "^12.0.1",
     "@firestitch/iframe": "^12.0.0",
-    "@firestitch/label": "^12.0.0",
+    "@firestitch/label": "^12.0.4",
     "@firestitch/lint": "^12.0.18",
     "@firestitch/menu": "^12.0.1",
     "@firestitch/message": "^12.0.0",
