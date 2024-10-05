@@ -196,7 +196,7 @@ export class GoogleSigninProvider extends SigninProvider {
       } else {
         google.accounts.oauth2.revoke(this._accessToken.value, () => {
           this._accessToken.next(null);
-          observer.next();
+          observer.next(null);
           observer.complete();
         });
       }

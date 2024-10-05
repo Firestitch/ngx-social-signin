@@ -132,7 +132,7 @@ export class FacebookSigninProvider extends SigninProvider {
   public signOut(): Observable<void> {
     return new Observable((observer) => {
       FB.logout((response: any) => {
-        observer.next();
+        observer.next(null);
         observer.complete();
       });
     });

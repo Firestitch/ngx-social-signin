@@ -123,7 +123,7 @@ export class AmazonSigninProvider extends SigninProvider {
       amazon.Login.logout();
 
       this._clearToken();
-      observer.next();
+      observer.next(null);
       observer.complete();
     });
   }

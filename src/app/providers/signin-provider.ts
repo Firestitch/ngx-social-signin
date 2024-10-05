@@ -34,7 +34,7 @@ export abstract class SigninProvider {
         signInJS.src = src;
         signInJS.onload = () => {
           this._initialized = true;
-          observer.next();
+          observer.next(null);
           observer.complete();
         };
         signInJS.onerror = () => {
