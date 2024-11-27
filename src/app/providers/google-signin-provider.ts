@@ -67,6 +67,9 @@ export class GoogleSigninProvider extends SigninProvider {
     // this._accessToken.pipe(skip(1)).subscribe(this._receivedAccessToken);
   }
 
+  public get valid(): boolean {
+    return !!this._clientId;
+  }
 
   public get name(): string {
     return 'Google';
@@ -214,6 +217,7 @@ export class GoogleSigninProvider extends SigninProvider {
   public signIn(): Observable<SocialUser> {
     google.accounts.id.prompt((notification) => {
       if (notification.isNotDisplayed() || notification.isSkippedMoment()) {
+        //
       }
     });
 

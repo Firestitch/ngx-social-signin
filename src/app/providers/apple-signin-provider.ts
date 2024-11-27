@@ -14,6 +14,10 @@ export class AppleSigninProvider extends SigninProvider {
     super();
   }
 
+  public get valid(): boolean {
+    return !!this._clientId;
+  }
+
   public get color(): string {
     return '#080808';
   }

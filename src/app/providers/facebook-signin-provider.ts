@@ -7,7 +7,6 @@ import { SigninProvider } from './signin-provider';
 
 declare let FB: any;
 
-
 export class FacebookSigninProvider extends SigninProvider {
 
   public static readonly PROVIDER = Provider.Facebook;
@@ -26,6 +25,10 @@ export class FacebookSigninProvider extends SigninProvider {
       ...this._requestOptions,
       ...initOptions,
     };
+  }
+
+  public get valid(): boolean {
+    return !!this._facebookAppId;
   }
 
   public get provider(): Provider {

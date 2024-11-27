@@ -92,11 +92,13 @@ export class FsSocialSignin {
 
   public init(config: SocialSigninConfig) {
     config.providers
+      .filter((signinProvider: SigninProvider) => signinProvider.valid)
       .forEach((signinProvider: SigninProvider) => {
-        this._signinProviders.set(
-          signinProvider.provider,
-          signinProvider,
-        );
+        this._signinProviders
+          .set(
+            signinProvider.provider,
+            signinProvider,
+          );
       });
   }
 }

@@ -10,6 +10,7 @@ import { SocialUser } from '../interfaces/social-user';
 export abstract class SigninProvider {
 
   public abstract get color(): string;
+  public abstract get valid(): boolean;
 
   public readonly changeUser?: EventEmitter<SocialUser>;
 
