@@ -1,7 +1,5 @@
 import { Observable, of } from 'rxjs';
-import { tap } from 'rxjs/operators';
 
-import { OAuthUrl } from '../classes';
 import { Provider } from '../enums';
 import { SocialUser } from '../interfaces';
 
@@ -32,6 +30,10 @@ export class FacebookSigninProvider extends SigninProvider {
 
   public get PROVIDER(): Provider {
     return Provider.Facebook;
+  }
+
+  public get color(): string {
+    return '#0866FF';
   }
 
   public get OAUTH_URL(): string {

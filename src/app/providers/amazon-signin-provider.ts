@@ -23,6 +23,10 @@ export class AmazonSigninProvider extends SigninProvider {
     super();
   }
 
+  public get color(): string {
+    return '#FFDA1D';
+  }
+
   public get PROVIDER(): Provider {
     return Provider.Amazon;
   }

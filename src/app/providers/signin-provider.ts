@@ -2,12 +2,14 @@ import { EventEmitter } from '@angular/core';
 
 import { Observable, of } from 'rxjs';
 
-import { SocialUser } from '../interfaces/social-user';
-import { Provider } from '../enums';
 import { OAuthUrl } from '../classes';
+import { Provider } from '../enums';
+import { SocialUser } from '../interfaces/social-user';
 
 
 export abstract class SigninProvider {
+
+  public abstract get color(): string;
 
   public readonly changeUser?: EventEmitter<SocialUser>;
 

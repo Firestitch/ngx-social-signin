@@ -1,14 +1,17 @@
 <ng-container *ngIf="provider">
-  <a  
+  <a
       [style.width]="width"
+      [style.backgroundColor]="backgroundColor"
       type="button"
       color="primary"
       mat-raised-button
       [href]="link">
-    <fs-social-signin-logo 
-      [theme]="'white'" 
-      [provider]="provider">
-    </fs-social-signin-logo>
-    {{buttonLabel}}
-  </a> 
+    <div class="button-content">
+      <fs-social-signin-logo
+        [theme]="'white'"
+        [provider]="provider">
+      </fs-social-signin-logo>
+      {{ buttonLabel }}
+    </div>
+  </a>
 </ng-container>

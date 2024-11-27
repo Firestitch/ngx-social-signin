@@ -1,9 +1,8 @@
 import { EventEmitter } from '@angular/core';
 
 import { BehaviorSubject, Observable, of, throwError } from 'rxjs';
-import { filter, skip, take, tap } from 'rxjs/operators';
+import { take } from 'rxjs/operators';
 
-import { OAuthUrl } from '../classes';
 import { Provider } from '../enums';
 import { SocialUser } from '../interfaces';
 
@@ -66,6 +65,15 @@ export class GoogleSigninProvider extends SigninProvider {
 
     // // emit receivedAccessToken but skip initial value from behaviorSubject
     // this._accessToken.pipe(skip(1)).subscribe(this._receivedAccessToken);
+  }
+
+
+  public get name(): string {
+    return 'Google';
+  }
+
+  public get color(): string {
+    return '#1A73E8';
   }
 
   public get PROVIDER(): Provider {

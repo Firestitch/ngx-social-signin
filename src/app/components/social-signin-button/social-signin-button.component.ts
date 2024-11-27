@@ -5,10 +5,10 @@ import {
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
+import { Provider } from '../../enums';
 import { SocialUser } from '../../interfaces';
 import { SigninProvider } from '../../providers';
 import { FsSocialSignin } from '../../services';
-import { Provider } from '../../enums';
 
 
 @Component({
@@ -29,6 +29,7 @@ export class FsSocialSigninButtonComponent implements OnInit, OnDestroy {
   @Output() public signedIn = new EventEmitter<SocialUser>();
 
   public buttonLabel;
+  public backgroundColor: string;
 
   private _destroy$ = new Subject();
 
@@ -39,7 +40,7 @@ export class FsSocialSigninButtonComponent implements OnInit, OnDestroy {
   public ngOnInit(): void {
     this.signinProvider = this._signinService.getSigninProvider(this.provider);
     this.buttonLabel = this.label.replace('{provider}', this.signinProvider.name);
-
+    this.backgroundColor = this.signinProvider.color;
     this.signinProvider
       .initialize()
       .subscribe();

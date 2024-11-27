@@ -14,6 +14,10 @@ export class AppleSigninProvider extends SigninProvider {
     super();
   }
 
+  public get color(): string {
+    return '#080808';
+  }
+
   public get PROVIDER(): Provider {
     return Provider.Apple;
   }

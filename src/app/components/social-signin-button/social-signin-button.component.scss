@@ -3,11 +3,9 @@ fs-social-signin-logo {
   display: flex;
 }
 
-:host ::ng-deep {
-  .mat-button-wrapper {
-    display: flex;
-    align-items: just;
-    justify-content: center;
-    align-items: center;
-  }
+.button-content {
+  display: flex;
+  align-items: just;
+  justify-content: center;
+  align-items: center;
 }
