@@ -24,7 +24,7 @@ export class FsSocialSigninButtonComponent implements OnInit, OnDestroy {
   @Input() public provider: Provider;
   @Input() public width: string;
   @Input() public redirectUri: string | URL;
-  @Input() public label = 'Continue With {provider}';
+  @Input() public label = 'Continue with {provider}';
 
   @Output() public signedIn = new EventEmitter<SocialUser>();
 
