@@ -16,7 +16,7 @@ export class FsSocialSignin {
     return !!this.oAuthResponse;
   }
 
-  public get oAuthResponse(): { provider: string; code: string; redirectUri: string } {
+  public get oAuthResponse(): { provider: Provider; code: string; redirectUri: string } {
     const url = new URL(window.location.href);
 
     if(url.searchParams.has('code')) {
