@@ -5,7 +5,7 @@ import { SocialUser } from '../interfaces';
 
 import { SigninProvider } from './signin-provider';
 
-declare let amazon: any; let window: any;
+declare let amazon: any; 
 
 
 export class AmazonSigninProvider extends SigninProvider {
@@ -27,15 +27,15 @@ export class AmazonSigninProvider extends SigninProvider {
     return '#FFDA1D';
   }
 
-  public get PROVIDER(): Provider {
+  public get provider(): Provider {
     return Provider.Amazon;
   }
 
-  public get OAUTH_URL(): string {
+  public get oauthUrl(): string {
     return 'https://www.amazon.com';
   }
 
-  public get OAUTH_CLIENT_ID(): string {
+  public get oauthClientId(): string {
     return this._clientId;
   }
 

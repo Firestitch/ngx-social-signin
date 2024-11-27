@@ -18,15 +18,15 @@ export class AppleSigninProvider extends SigninProvider {
     return '#080808';
   }
 
-  public get PROVIDER(): Provider {
+  public get provider(): Provider {
     return Provider.Apple;
   }
 
-  public get OAUTH_URL(): string {
+  public get oauthUrl(): string {
     return 'https://appleid.apple.com/auth/authorize';
   }
 
-  public get OAUTH_CLIENT_ID(): string {
+  public get oauthClientId(): string {
     return this._clientId;
   }
 
@@ -45,7 +45,7 @@ export class AppleSigninProvider extends SigninProvider {
     return of(null);
   }
 
-  public signIn(options?: any): Observable<SocialUser> {
+  public signIn(): Observable<SocialUser> {
     return of(null);
   }
 

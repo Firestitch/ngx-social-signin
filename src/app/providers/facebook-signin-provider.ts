@@ -28,7 +28,7 @@ export class FacebookSigninProvider extends SigninProvider {
     };
   }
 
-  public get PROVIDER(): Provider {
+  public get provider(): Provider {
     return Provider.Facebook;
   }
 
@@ -36,11 +36,11 @@ export class FacebookSigninProvider extends SigninProvider {
     return '#0866FF';
   }
 
-  public get OAUTH_URL(): string {
+  public get oauthUrl(): string {
     return 'https://www.facebook.com/v16.0/dialog/oauth';
   }
 
-  public get OAUTH_CLIENT_ID(): string {
+  public get oauthClientId(): string {
     return this._facebookAppId;
   }
 
@@ -133,7 +133,7 @@ export class FacebookSigninProvider extends SigninProvider {
 
   public signOut(): Observable<void> {
     return new Observable((observer) => {
-      FB.logout((response: any) => {
+      FB.logout(() => {
         observer.next(null);
         observer.complete();
       });

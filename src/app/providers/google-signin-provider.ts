@@ -76,7 +76,7 @@ export class GoogleSigninProvider extends SigninProvider {
     return '#1A73E8';
   }
 
-  public get PROVIDER(): Provider {
+  public get provider(): Provider {
     return Provider.Google;
   }
 
@@ -135,11 +135,11 @@ export class GoogleSigninProvider extends SigninProvider {
     //   );
   }
 
-  public get OAUTH_URL(): string {
+  public get oauthUrl(): string {
     return 'https://accounts.google.com/o/oauth2/v2/auth';
   }
 
-  public get OAUTH_CLIENT_ID(): string {
+  public get oauthClientId(): string {
     return this._clientId;
   }
 
@@ -213,12 +213,9 @@ export class GoogleSigninProvider extends SigninProvider {
 
   public signIn(): Observable<SocialUser> {
     google.accounts.id.prompt((notification) => {
-      debugger;
       if (notification.isNotDisplayed() || notification.isSkippedMoment()) {
-
       }
     });
-
 
     return throwError(
       'You should not call this method directly for Google, use "<asl-google-signin-button>" wrapper ' +

@@ -1,23 +1,16 @@
-import { Inject, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 
 import { Observable } from 'rxjs';
 
 import { Provider } from '../enums';
-import { FS_SOCIAL_SIGNIN_CONFIG } from '../injectors';
-import { SigninProvider } from '../providers/signin-provider';
 import { SocialSigninConfig } from '../interfaces';
+import { SigninProvider } from '../providers/signin-provider';
 
 
 @Injectable({ providedIn: 'root' })
 export class FsSocialSignin {
 
   private _signinProviders: Map<Provider, SigninProvider> = new Map();
-
-  constructor(
-    @Inject(FS_SOCIAL_SIGNIN_CONFIG) private _config: SocialSigninConfig,
-  ) {
-    this._initialize(this._config);
-  }
 
   public get hasOAuthResponse(): boolean {
     return !!this.oAuthResponse;
@@ -38,7 +31,9 @@ export class FsSocialSignin {
             code: url.searchParams.get('code'),
           };
         }
-      } catch(e) {}
+      } catch(e) {
+        //
+      }
     }
 
     return null;
@@ -95,11 +90,11 @@ export class FsSocialSignin {
   //   this._authState.next(user);
   //}
 
-  private _initialize(config: SocialSigninConfig) {
+  public init(config: SocialSigninConfig) {
     config.providers
       .forEach((signinProvider: SigninProvider) => {
         this._signinProviders.set(
-          signinProvider.PROVIDER,
+          signinProvider.provider,
           signinProvider,
         );
       });

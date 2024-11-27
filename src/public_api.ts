@@ -6,11 +6,7 @@ export {
 
 export { FsSocialSignin } from './app/services/social-sigin.service';
 
-export { FS_SOCIAL_SIGNIN_CONFIG } from './app/injectors';
-
-export {
-  FacebookSigninProvider, GoogleSigninProvider, AmazonSigninProvider, AppleSigninProvider,
-} from './app/providers';
+export { AmazonSigninProvider, AppleSigninProvider, FacebookSigninProvider, GoogleSigninProvider } from './app/providers';
 
 export { Provider } from './app/enums';
 export * from './app/interfaces';

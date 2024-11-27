@@ -56,7 +56,7 @@ export abstract class SigninProvider {
     scope = scope ? scope : this.getScopes();
 
     const stateData: any = {
-      provider: this.PROVIDER,
+      provider: this.provider,
       redirectUri,
     };
 
@@ -65,8 +65,8 @@ export abstract class SigninProvider {
     }
 
     return new OAuthUrl(
-      this.OAUTH_URL,
-      this.OAUTH_CLIENT_ID,
+      this.oauthUrl,
+      this.oauthClientId,
       redirectUri,
       btoa(JSON.stringify(stateData)),
       scope,
@@ -74,7 +74,7 @@ export abstract class SigninProvider {
   }
 
   public get name(): string {
-    return this.PROVIDER.charAt(0).toUpperCase() + this.PROVIDER.slice(1);
+    return this.provider.charAt(0).toUpperCase() + this.provider.slice(1);
   }
 
   public abstract initialize(autoLogin?: boolean): Observable<void>;
@@ -84,7 +84,7 @@ export abstract class SigninProvider {
   public abstract getAccessToken(): Observable<string>;
   public abstract revokeAccessToken(): Observable<void>;
   public abstract getScopes(): string[];
-  public abstract get PROVIDER(): Provider;
-  public abstract get OAUTH_URL(): string;
-  public abstract get OAUTH_CLIENT_ID(): string;
+  public abstract get provider(): Provider;
+  public abstract get oauthUrl(): string;
+  public abstract get oauthClientId(): string;
 }
