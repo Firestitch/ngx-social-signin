@@ -1,11 +1,11 @@
-<ng-container *ngIf="provider">
+@if (provider) {
   <a
-      [style.width]="width"
-      [style.backgroundColor]="backgroundColor"
-      type="button"
-      color="primary"
-      mat-flat-button
-      [href]="link">
+    [style.width]="width"
+    [style.backgroundColor]="backgroundColor"
+    type="button"
+    color="primary"
+    mat-flat-button
+    [href]="link">
     <div class="button-content">
       <fs-social-signin-logo
         [theme]="'white'"
@@ -14,4 +14,4 @@
       {{ buttonLabel }}
     </div>
   </a>
-</ng-container>
+}

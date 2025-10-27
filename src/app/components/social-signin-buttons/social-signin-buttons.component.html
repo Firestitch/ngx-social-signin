@@ -1,7 +1,7 @@
-<ng-container *ngFor="let signinProvider of signinProviders">
+@for (signinProvider of signinProviders; track signinProvider) {
   <fs-social-signin-button
     [provider]="signinProvider.provider"
     [redirectUri]="redirectUri"
     [width]="width">
   </fs-social-signin-button>
-</ng-container>
+}

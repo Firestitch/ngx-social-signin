@@ -4,10 +4,10 @@
 
 <br><br><br>
 
-<ng-container *ngFor="let provider of Providers">
+@for (provider of Providers; track provider) {
   <fs-social-signin-logo
     [width]="'30px'"
     [theme]="'color'"
     [provider]="provider.value">
   </fs-social-signin-logo>
-</ng-container>
+}
