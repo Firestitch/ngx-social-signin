@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 
 import { FsMessage } from '@firestitch/message';
 import { FsSocialSignin, Provider, Providers } from '@firestitch/social-signin';
@@ -15,14 +15,14 @@ import { FsSocialSigninLogoComponent } from '../../../../src/app/components/soci
     imports: [FsSocialSigninButtonsComponent, FsSocialSigninLogoComponent],
 })
 export class SiginButtonComponent {
+  private _socialSignin = inject(FsSocialSignin);
+  private _message = inject(FsMessage);
+
 
   public Provider = Provider;
   public Providers = Providers;
 
-  constructor(
-    private _socialSignin: FsSocialSignin,
-    private _message: FsMessage,
-  ) {
+  constructor() {
     if(this._socialSignin.hasOAuthResponse){
       const response = this._socialSignin.oAuthResponse;
       this._message.success(`The ${response.provider} OAuth code has been dected ${response.code}`);

@@ -1,6 +1,4 @@
-import {
-  ChangeDetectionStrategy, Component, Input, OnInit,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnInit, inject } from '@angular/core';
 
 
 import { SigninProvider } from '../../providers';
@@ -17,15 +15,13 @@ import { FsSocialSigninButtonComponent } from '../social-signin-button/social-si
     imports: [FsSocialSigninButtonComponent],
 })
 export class FsSocialSigninButtonsComponent implements OnInit {
+  private _signinService = inject(FsSocialSignin);
+
 
   @Input() public width: string;
   @Input() public redirectUri: string | URL;
 
   public signinProviders: SigninProvider[];
-
-  constructor(
-    private _signinService: FsSocialSignin,
-  ){}
 
   public ngOnInit(): void {
     this.signinProviders = this._signinService.signinProviders;

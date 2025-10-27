@@ -1,6 +1,4 @@
-import {
-  ChangeDetectionStrategy, Component, EventEmitter, Input, OnDestroy, OnInit, Output,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnDestroy, OnInit, Output, inject } from '@angular/core';
 
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
@@ -22,6 +20,8 @@ import { FsSocialSigninLogoComponent } from '../social-signin-logo/social-signin
     imports: [MatAnchor, FsSocialSigninLogoComponent],
 })
 export class FsSocialSigninButtonComponent implements OnInit, OnDestroy {
+  private _signinService = inject(FsSocialSignin);
+
 
   public signinProvider: SigninProvider;
 
@@ -36,10 +36,6 @@ export class FsSocialSigninButtonComponent implements OnInit, OnDestroy {
   public backgroundColor: string;
 
   private _destroy$ = new Subject();
-
-  constructor(
-    private _signinService: FsSocialSignin,
-  ){}
 
   public ngOnInit(): void {
     this.signinProvider = this._signinService.getSigninProvider(this.provider);
