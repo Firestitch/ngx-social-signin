@@ -9,13 +9,17 @@ import { Provider } from '../../enums';
 import { SocialUser } from '../../interfaces';
 import { SigninProvider } from '../../providers';
 import { FsSocialSignin } from '../../services';
+import { MatAnchor } from '@angular/material/button';
+import { FsSocialSigninLogoComponent } from '../social-signin-logo/social-signin-logo.component';
 
 
 @Component({
-  selector: 'fs-social-signin-button',
-  templateUrl: './social-signin-button.component.html',
-  styleUrls: ['./social-signin-button.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'fs-social-signin-button',
+    templateUrl: './social-signin-button.component.html',
+    styleUrls: ['./social-signin-button.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: true,
+    imports: [MatAnchor, FsSocialSigninLogoComponent],
 })
 export class FsSocialSigninButtonComponent implements OnInit, OnDestroy {
 

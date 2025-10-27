@@ -6,10 +6,11 @@ import { Provider } from '../../enums';
 
 
 @Component({
-  selector: 'fs-social-signin-logo',
-  templateUrl: './social-signin-logo.component.html',
-  styleUrls: ['./social-signin-logo.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'fs-social-signin-logo',
+    templateUrl: './social-signin-logo.component.html',
+    styleUrls: ['./social-signin-logo.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: true,
 })
 export class FsSocialSigninLogoComponent {
 

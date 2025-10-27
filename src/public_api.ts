@@ -1,4 +1,4 @@
-export { FsSocialSigninModule } from './app/fs-social-signin.module';
+
 
 export {
   FsSocialSigninButtonComponent, FsSocialSigninButtonsComponent, FsSocialSigninLogoComponent,
